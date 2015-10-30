@@ -1,0 +1,28 @@
+From cda6e88753a39324b504c67954b0682e43c75537 Mon Sep 17 00:00:00 2001
+From: Igor Gnatenko <i.gnatenko.brain@gmail.com>
+Date: Fri, 30 Oct 2015 21:24:40 +0100
+Subject: [PATCH] test_viz: import networkx instead of nx
+
+looks like a typo
+
+Signed-off-by: Igor Gnatenko <i.gnatenko.brain@gmail.com>
+---
+ nitime/tests/test_viz.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/nitime/tests/test_viz.py b/nitime/tests/test_viz.py
+index 8406e4f..6149754 100644
+--- a/nitime/tests/test_viz.py
++++ b/nitime/tests/test_viz.py
+@@ -12,7 +12,7 @@ from nitime.analysis import CorrelationAnalyzer
+ from nitime.viz import drawmatrix_channels, drawgraph_channels, plot_xcorr
+ 
+ try:
+-    import nx
++    import networkx
+     no_networkx = False
+     no_networkx_msg = ''
+ except ImportError as e:
+-- 
+2.6.2
+

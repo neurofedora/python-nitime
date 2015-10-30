@@ -1,0 +1,51 @@
+diff --git a/nitime/__init__.py b/nitime/__init__.py
+index c021e80..ebcc345 100644
+--- a/nitime/__init__.py
++++ b/nitime/__init__.py
+@@ -26,7 +26,6 @@ from .version import  __version__
+ from . import algorithms
+ from . import timeseries
+ from . import analysis
+-from . import six
+ 
+ from .timeseries import *
+ 
+diff --git a/nitime/timeseries.py b/nitime/timeseries.py
+index 86710ec..4c98bd3 100644
+--- a/nitime/timeseries.py
++++ b/nitime/timeseries.py
+@@ -32,7 +32,7 @@ import numpy as np
+ 
+ # Our own
+ from nitime import descriptors as desc
+-import nitime.six as six
++import six
+ 
+ #-----------------------------------------------------------------------------
+ # Module globals
+diff --git a/nitime/version.py b/nitime/version.py
+index 988729a..275f3f9 100644
+--- a/nitime/version.py
++++ b/nitime/version.py
+@@ -1,5 +1,5 @@
+ """nitime version/release information"""
+-from nitime.six.moves import map
++from six.moves import map
+ 
+ # Format expected by setup.py and doc/source/conf.py: string of form "X.Y.Z"
+ _version_major = 0
+diff --git a/nitime/viz.py b/nitime/viz.py
+index 0d84e7b..a4bba7a 100644
+--- a/nitime/viz.py
++++ b/nitime/viz.py
+@@ -7,8 +7,8 @@ from __future__ import print_function
+ 
+ # If you are running nosetests right now, you might want to use 'agg' as a backend:
+ import sys
+-from nitime.six.moves import map
+-from nitime.six.moves import zip
++from six.moves import map
++from six.moves import zip
+ if "nose" in sys.modules:
+     import matplotlib
+     matplotlib.use('agg')
