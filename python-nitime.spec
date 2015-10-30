@@ -2,7 +2,7 @@
 
 Name:           python-%{modname}
 Version:        0.5
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Timeseries analysis for neuroscience data
 
 License:        BSD
@@ -11,6 +11,8 @@ Source0:        https://github.com/nipy/nitime/archive/rel/%{version}/%{modname}
 Patch0:         python-nitime-0.5-unbundle-six.patch
 # https://github.com/nipy/nitime/pull/134
 Patch1:         0001-test_viz-import-networkx-instead-of-nx.patch
+# https://github.com/nipy/nitime/pull/135
+Patch2:         0001-BF-Newer-numpy-can-t-deal-with-the-type-coercion-tha.patch
 BuildRequires:  git-core
 
 %description
@@ -78,8 +80,8 @@ sed -i -e "s/import nx/import networkx/" %{modname}/tests/test_viz.py
 %py3_install
 
 %check
-nosetests-%{python2_version} -v || :
-nosetests-%{python3_version} -v || :
+nosetests-%{python2_version} -v
+nosetests-%{python3_version} -v
 
 %files -n python2-%{modname}
 %license LICENSE
@@ -92,5 +94,8 @@ nosetests-%{python3_version} -v || :
 %{python3_sitearch}/%{modname}*
 
 %changelog
+* Fri Oct 30 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> - 0.5-2
+- Add patch which fixes tests with newer numpy
+
 * Fri Oct 30 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> - 0.5-1
 - Initial package
